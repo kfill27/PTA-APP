@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :teachers
+  resources :teachers do
+    collection {post :import}
+  end
   resources :students do
     collection {post :import}
   end

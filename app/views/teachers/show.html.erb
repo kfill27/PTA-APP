@@ -27,3 +27,16 @@
 
 <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
 <%= link_to 'Back', teachers_path %>
+<hr>
+<div>
+  <h3>Class Roster</h3>
+    <div>
+      <% @students.each do |student| %>
+        <p>
+          <%= student.first_name %>
+          <%= student.middle_name %>
+          <%= student.last_name %>
+        </p>
+      <% end %>
+    </div>
+</div>
