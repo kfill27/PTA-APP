@@ -7,4 +7,8 @@ class Teacher < ApplicationRecord
       Teacher.create! row.to_hash
     end
   end
+
+  def self.search(search)
+    where("name ILIKE ? OR grade ILIKE ?", "%#{search}%", "%#{search}%")
+  end
 end

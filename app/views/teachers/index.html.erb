@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Teachers</h1>
+<%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Teachers by name or grade" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<% if @teachers.blank? %>
+  <h4>There are no teachers by the name of <%= params[:search] %>.</h4>
+<% end %>
 
 <table>
   <thead>
