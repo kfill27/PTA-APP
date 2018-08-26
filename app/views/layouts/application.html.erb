@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <p class="alert"><%= alert %></p>
+    <p class="uk-alert"><%= alert %></p>
     <% if user_signed_in? %>
       <li>
       <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
