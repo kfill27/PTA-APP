@@ -11,11 +11,15 @@
 
   <body>
     <nav class="uk-navbar-container" uk-navbar>
-      <div class="uk-navbar-left">PTA App</div>
+      <div class="uk-navbar-left">
+        <h2 class="uk-margin-left uk-margin-top">Biscayne Elementary PTA</h2>
+      </div>
       <div class="uk-navbar-right">
-        <ul class="uk-list">
+        <ul class="uk-navbar-nav">
+          <li><%= link_to('Teachers', teachers_path) %></li>
+          <li><%= link_to('Students', students_path) %></li>
           <% if user_signed_in? %>
-            <li class="uk-active">
+            <li>
               <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
             </li>
           <% end %>
