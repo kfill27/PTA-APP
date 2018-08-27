@@ -1,51 +1,59 @@
-<p id="notice"><%= notice %></p>
+<div class="uk-container">
 
-<h1>Teachers</h1>
-<%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Teachers by name or grade" %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
+  <p id="notice"><%= notice %></p>
+  <div class="uk-card uk-card-default uk-card-body">
+    <h3>Teachers</h3>
+    <div class="uk-grid-small" uk-grid>
+      <%= form_tag(teachers_path, :method => "get", id: "search-form", class: "uk-search uk-search-default uk-flex uk-width-1-1") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Teachers by name or grade", class: "uk-search-input" %>
+        <%= submit_tag "Search", :name => nil, class: "uk-button uk-button-primary uk-margin-left uk-flex-right" %>
+      <% end %>
+    </div>
 
-<% if @teachers.blank? %>
-  <h4>There are no teachers by the name of <%= params[:search] %>.</h4>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Grade</th>
-      <th>Section</th>
-      <th>Room</th>
-      <th>Class type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teachers.each do |teacher| %>
-      <tr>
-        <td><%= teacher.name %></td>
-        <td><%= teacher.grade %></td>
-        <td><%= teacher.section_id %></td>
-        <td><%= teacher.room %></td>
-        <td><%= teacher.class_type %></td>
-        <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% if @teachers.blank? %>
+      <div class="uk-alert">
+        <h4>There are no teachers by the name of <%= params[:search] %>.</h4>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<div>
-  <h4>Import Teacher Data</h4>
-  <%= form_tag import_teachers_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import CSV" %>
-  <% end %>
+  <table class="uk-table uk-table-striped uk-table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Grade</th>
+        <th>Section</th>
+        <th>Room</th>
+        <th>Class type</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @teachers.each do |teacher| %>
+        <tr>
+          <td><%= teacher.name %></td>
+          <td><%= teacher.grade %></td>
+          <td><%= teacher.section_id %></td>
+          <td><%= teacher.room %></td>
+          <td><%= teacher.class_type %></td>
+          <td><%= link_to 'View Class', teacher, class: "uk-button uk-button-default" %></td>
+          <!-- <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+          <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div>
+    <h4>Import Teacher Data</h4>
+    <%= form_tag import_teachers_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Import CSV" %>
+    <% end %>
+  </div>
+
+  <br>
+
+  <%= link_to 'New Teacher', new_teacher_path %>
 </div>
-
-<br>
-
-<%= link_to 'New Teacher', new_teacher_path %>
