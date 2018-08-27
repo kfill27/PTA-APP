@@ -1,42 +1,58 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @teacher.name %>
-</p>
-
-<p>
-  <strong>Grade:</strong>
-  <%= @teacher.grade %>
-</p>
-
-<p>
-  <strong>Section:</strong>
-  <%= @teacher.section_id %>
-</p>
-
-<p>
-  <strong>Room:</strong>
-  <%= @teacher.room %>
-</p>
-
-<p>
-  <strong>Class type:</strong>
-  <%= @teacher.class_type %>
-</p>
-
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
-<hr>
 <div>
-  <h3>Class Roster</h3>
-    <div>
-      <% @students.each do |student| %>
+  <div class="uk-card uk-card-primary uk-card-body">
+    <div class="uk-grid-divider uk-child-width-expand@s" uk-grid>
+      <div>
+        <h3 class="uk-card-title"><%= @teacher.name %> - Grade <%= @teacher.grade %></h3>
+        <%= link_to 'Edit Teacher Info.', edit_teacher_path(@teacher) %> |
+        <%= link_to 'Back', teachers_path %>
+      </div>
+      <div>
         <p>
-          <%= student.first_name %>
-          <%= student.middle_name %>
-          <%= student.last_name %>
+          <strong>Section:</strong>
+          <%= @teacher.section_id %>
         </p>
-      <% end %>
+
+        <p>
+          <strong>Room:</strong>
+          <%= @teacher.room %>
+        </p>
+
+        <p>
+          <strong>Class type:</strong>
+          <%= @teacher.class_type %>
+        </p>
+      </div>
+      <div><h1 class="uk-position-center">80% Membership</h1></div>
     </div>
+  </div>
+</div>
+<hr>
+<div class="uk-container">
+  <p id="notice"><%= notice %></p>
+  <div>
+    <h3>Class Roster</h3>
+      <div>
+        <table class="uk-table uk-table-divider uk-table-hover">
+          <thead>
+            <tr>
+              <th class="uk-table-shrink">Memberships</th>
+              <th>Name</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @students.each do |student| %>
+              <tr>
+                <td> XYZ</td>
+                <td>
+                  <%= student.first_name %>
+                  <%= student.middle_name %>
+                  <%= student.last_name %>
+                </td>
+                <td><%= link_to 'View Memberships', teachers_path, class: "uk-button uk-button-default"%></td>
+            <% end %>
+            </tr>
+          </tbody>
+      </div>
+  </div>
 </div>
