@@ -1,29 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="uk-container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @student.first_name %>
-</p>
+  <div class="uk-margin-bottom">
+    <%= link_to 'Back', students_path %> |
+    <%= link_to 'Edit', edit_student_path(@student) %>
+  </div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @student.last_name %>
-</p>
+  <div class="uk-card uk-card-primary uk-card-body">
+    <h3 class="uk-card-title"><%= @student.first_name %> <%= @student.middle_name %> <%= @student.last_name %> - <%= @student.student_id %></h3>
+    <h3 class="uk-card-title uk-position-right uk-margin-right"><%= @student.teacher.name%></h3>
+  </div>
 
-<p>
-  <strong>Middle name:</strong>
-  <%= @student.middle_name %>
-</p>
+  <p>Member 1</p>
+  <p>Member 2</p>
+  <p>Member 3</p>
 
-<p>
-  <strong>Student:</strong>
-  <%= @student.student_id %>
-</p>
-
-<p>
-  <strong>Homeroom:</strong>
-  <%= @student.homeroom %>
-</p>
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+</div>
