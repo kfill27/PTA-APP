@@ -2,8 +2,8 @@
   <p id="notice"><%= notice %></p>
 
   <div class="uk-margin-bottom">
-    <%= link_to 'Back', students_path %> |
-    <%= link_to 'Edit', edit_student_path(@student) %>
+    <%= link_to 'View Class', teacher_path(@student.teacher) %> |
+    <%= link_to 'Edit Student', edit_student_path(@student) %>
   </div>
 
   <div class="uk-card uk-card-primary uk-card-body">
@@ -11,8 +11,27 @@
     <h3 class="uk-card-title uk-position-right uk-margin-right"><%= @student.teacher.name%></h3>
   </div>
 
-  <p>Member 1</p>
-  <p>Member 2</p>
-  <p>Member 3</p>
+  <table class="uk-table uk-table-striped uk-table-hover uk-table-middle">
+    <thead>
+      <tr>
+        <th>Member Name</th>
+        <th>Member Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><p><%=@student.first_name.capitalize %>'s Mom</p></td>
+        <td><p>email@email.com</p></td>
+      </tr>
+      <tr>
+        <td><p><%=@student.first_name.capitalize %>'s Dad</p></td>
+        <td><p>emailwhatever@email.com</p></td>
+      </tr>
+      <tr>
+        <td><p><%=@student.first_name.capitalize %>'s Grandma</p></td>
+        <td><p>N/A</p></td>
+      </tr>
+    </tbody>
+  </table>
 
 </div>

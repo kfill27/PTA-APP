@@ -36,7 +36,7 @@
     <% end %>
   </div>
 
-  <table class="uk-table uk-table-striped uk-table-hover">
+  <table class="uk-table uk-table-striped uk-table-hover uk-table-middle">
     <thead>
       <tr>
         <th>First name</th>
@@ -58,8 +58,6 @@
           <td><%= student.teacher.name %></td>
           <td><%= link_to 'View Class', teacher_path(student.teacher.id), class: "uk-button uk-button-default" %></td>
           <td><%= link_to 'View Student', student, class: "uk-button uk-button-default" %></td>
-          <!-- <td><%= link_to 'Edit Student', edit_student_path(student) %></td>
-          <td><%= link_to 'Destroy Student', student, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
         </tr>
       <% end %>
     </tbody>
