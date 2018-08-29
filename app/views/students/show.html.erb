@@ -20,13 +20,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <% @student.memberships.each do |member| %>
+      <% @student.memberships.each do |member| %>
+        <tr>
           <td><p><%= member.name.capitalize %></p></td>
           <td><p><%= member.email %></p></td>
           <td><p><%= member.phone %></p></td>
-        <% end %>
-      </tr>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 

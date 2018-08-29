@@ -22,7 +22,7 @@
       <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
           <% if user_signed_in? %>
-            <li><%= link_to('All Members', teachers_path) %></li>
+            <li><%= link_to('All Members', memberships_path) %></li>
             <li><%= link_to('Teachers', teachers_path) %></li>
             <li><%= link_to('Students', students_path) %></li>
             <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>

@@ -1,8 +1,12 @@
+<div class="uk-container">
 <p id="notice"><%= notice %></p>
 
-<h1>Memberships</h1>
+<div class="uk-card uk-card-default uk-card-body">
+  <h3>Memberships</h3>
 
-<table>
+</div>
+
+<table class="uk-table uk-table-striped uk-table-hover uk-table-middle">
   <thead>
     <tr>
       <th>Name</th>
@@ -20,7 +24,6 @@
         <td><%= membership.phone %></td>
         <td><%= link_to 'Show', membership %></td>
         <td><%= link_to 'Edit', edit_membership_path(membership) %></td>
-        <td><%= link_to 'Destroy', membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,3 +32,4 @@
 <br>
 
 <%= link_to 'New Membership', new_membership_path %>
+</div>
