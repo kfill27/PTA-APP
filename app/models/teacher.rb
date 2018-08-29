@@ -1,5 +1,6 @@
 class Teacher < ApplicationRecord
   has_many :students
+  has_many :memberships, as: :membershipable
   require 'csv'
 
   def self.import(file)

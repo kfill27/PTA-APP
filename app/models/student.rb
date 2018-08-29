@@ -1,5 +1,7 @@
 class Student < ApplicationRecord
   belongs_to :teacher
+  has_many :memberships, as: :membershipable
+  
   require 'csv'
 
   def self.import(file)
