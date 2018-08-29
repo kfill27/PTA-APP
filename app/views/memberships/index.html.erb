@@ -19,7 +19,7 @@
   <tbody>
     <% @memberships.each do |membership| %>
       <tr>
-        <td><%= membership.name %></td>
+        <td><%= membership.first_name %> <%= membership.last_name %></td>
         <td><%= membership.email %></td>
         <td><%= membership.phone %></td>
         <td><%= link_to 'Show', membership %></td>
@@ -31,5 +31,5 @@
 
 <br>
 
-<%= link_to 'New Membership', new_membership_path %>
+<!-- <%= link_to 'New Membership', new_membership_path %> -->
 </div>
