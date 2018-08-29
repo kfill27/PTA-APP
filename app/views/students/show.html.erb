@@ -22,7 +22,7 @@
     <tbody>
       <% @student.memberships.each do |member| %>
         <tr>
-          <td><p><%= member.name.capitalize %></p></td>
+          <td><p><%= member.first_name.capitalize %> <%= member.last_name.capitalize %></p></td>
           <td><p><%= member.email %></p></td>
           <td><p><%= member.phone %></p></td>
         </tr>

@@ -15,7 +15,6 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
-    @students = @teacher.students
   end
 
   def import
