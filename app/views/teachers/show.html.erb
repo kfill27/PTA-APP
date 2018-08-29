@@ -43,7 +43,13 @@
           <tbody>
             <% @students.each do |student| %>
               <tr>
-                <td><span class="uk-margin-small-right" uk-icon="check"></span></td>
+                <td>
+                  <% if student.memberships.any? %>
+                    <span class="uk-margin-small-right" uk-icon="check"></span>
+                  <% else %>
+                    <span></span>
+                  <% end %>
+                </td>
                 <td>
                   <%= student.first_name %>
                   <%= student.middle_name %>

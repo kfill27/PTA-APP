@@ -16,20 +16,16 @@
       <tr>
         <th>Member Name</th>
         <th>Member Email</th>
+        <th>Member Phone</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><p><%=@student.first_name.capitalize %>'s Mom</p></td>
-        <td><p>email@email.com</p></td>
-      </tr>
-      <tr>
-        <td><p><%=@student.first_name.capitalize %>'s Dad</p></td>
-        <td><p>emailwhatever@email.com</p></td>
-      </tr>
-      <tr>
-        <td><p><%=@student.first_name.capitalize %>'s Grandma</p></td>
-        <td><p>N/A</p></td>
+        <% @student.memberships.each do |member| %>
+          <td><p><%= member.name.capitalize %></p></td>
+          <td><p><%= member.email %></p></td>
+          <td><p><%= member.phone %></p></td>
+        <% end %>
       </tr>
     </tbody>
   </table>
