@@ -31,6 +31,16 @@
     <%= form.text_field :phone %>
   </div>
 
+  <div class="field">
+    <%= form.label :student_or_teacher %>
+    <%= form.select :membershipable_type, ['Student', 'Teacher'] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :related_student %>
+    <%= form.select :membershipable_id, Student.all.collect{|s| [s.full_name, s.id]} %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
