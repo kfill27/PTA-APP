@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  resources :memberships
+  get 'home/welcome'
+  root to: "home#welcome"
+
   devise_for :users
-  resources :teachers do
-    collection {post :import}
-  end
+  
+  resources :memberships
   resources :students do
     collection {post :import}
   end
-  root to: "students#index"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :teachers do
+    collection {post :import}
+  end
 end
